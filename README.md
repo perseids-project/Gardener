@@ -25,7 +25,10 @@ To publish your own treebank collection, follow the below instructions.
 	<li>Initiating a new blog will pregenerate a few files and add them to your repository</li>
   <li>Some of the parts of the GardenerTheme are not complete files by themselves, but require you to edit the pregenerated files in the default blog.</li>
 	<li>add "_site.asset-cache" to the .gitignore file</li>
-	<li> attach the partial config.yml file that is part of the theme, to the default config file</li>
+	<li>Change the name of "Gemfile-add-ons" to "Gemfile" and delete the pregenerated Gemfile.</li>
+	<li> attach the partial config.yml file that is part of the theme, to the default config file. Delete the partial config.yml file after you copy over the content</li>
+	<li>add your sites baseurl and url to the config file. The baseurl should be "/Your-Repository"</li>
+	
 </ol>
 </li>
  	<li>Load your treebanks into the xml directory
