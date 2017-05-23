@@ -87,5 +87,5 @@ These html files can be written up in any simple text editor. <br>
 </p>
 <p>
 The default directory structure divides the treebanks by language, and then into categories based on the name of the document. 
-Currently we only support this kind of structure, and only three specific language categories, grctb for Ancient Greek treebanks, lattb for Latin treebanks, and misctb for all other language groups. 
+Currently we only support this kind of structure, and only three specific language categories, grctb for Ancient Greek treebanks, lattb for Latin treebanks, and misctb for all other language groups. Right now there are two sample trees (one for lattb and one for grctb) as well as two sample tbpages (for those two trees). Use them as a template for your own tbpage files. 
 </p>
