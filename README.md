@@ -34,8 +34,8 @@ To publish your own treebank collection, follow the below instructions. (Command
       <li>Set <b>title</b> to the Title you wan to to appear for your site.</li>
       <li>Set <b>email</b> to your email address (if you want to publish it, otherwise set it to be empty)</li>
       <li>Set <b>description</b> to the text you would like to appear on the home page of your site</li>
-      <li>Set <b>baseurl</b> to "/" plus the name of your forked repository (this will be '/Gardener' unless you have changed the name of the repository after forking it.). </li>
-      <li>Set <b>url</b> to the full Github.io URL for your repository (e.g. 'https://youraccount.github.io/Gardener__'</li>
+      <li>Set <b>baseurl</b> to "/" plus the name of your forked repository (this will be normally be '/Gardener' unless you have changed the name of the repository after forking it.). </li>
+      <li>Set <b>url</b> to the full Github.io URL for your repository (e.g. 'https://youraccount.github.io/Gardener'</li>
       <li>Set <b>twitter_username</b> and <b>github_username</b> as appropriate</li>
      </ol>
    </li>
