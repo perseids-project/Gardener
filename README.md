@@ -1,4 +1,4 @@
-<h1>Gardener Treebanking Self-publicaiton Platform</h1>
+<h1>Gardener Treebanking Self-publication Platform</h1>
 
 This guide should help you self-publish a collection of treebank fixes produced on the Perseids platform with Arethusa, hosting them in a simple Jekyll-based blog via GitHub Pages. 
 
