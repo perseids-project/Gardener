@@ -1,6 +1,6 @@
 <h1>Gardener Jekyll Theme for Treebank Publications</h1>
 
-This guide should help you self-publish a collection of treebank fixes produced on the Perseids platform with Arethusa, hosting them in a simple Jekyll-based blog via GitHub Pages. 
+This guide should help you self-publish a collection of treebank fixes produced on the Perseids platform with Arethusa, hosting them in a simple Jekyll-based site via GitHub Pages. 
 
 Prerequisites for using guide include:
     <ul>
