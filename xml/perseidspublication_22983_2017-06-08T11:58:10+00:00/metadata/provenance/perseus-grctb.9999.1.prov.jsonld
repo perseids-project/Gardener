@@ -1,0 +1,13 @@
+{
+  "@context": {
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "@id": "../../data/perseus-grctb.9999.1.xml",
+  "@type": "prov:Entity",
+  "prov:wasDerivedFrom": [
+    {
+      "@type": "prov:Entity",
+      "@id": "urn:cts:greekLit:tlg0059.tlg002.perseus-grc1"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+00ca4542f59e7b4c00710048ea416774 bag-info.txt
+9e5ad981e0d29adc278f6a294b8c2aca bagit.txt
+d5bb8511545d3bdf5146f66bfe459baa metadata/provenance/perseus-grctb.9999.1.prov.jsonld
+8a2e8d2bcc10a1ea08cf5d873d17fc92 metadata/manifest.json
+b4c3bf3a962356bf69fe93b5ae343f8f manifest-sha1.txt
+0b9466e4e772764d22aa2d810e1c5a2e manifest-md5.txt
