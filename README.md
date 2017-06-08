@@ -40,7 +40,7 @@ To publish your own treebank collection, follow the below instructions. (Command
      </ol>
    </li>
    <li>Load your treebanks into the xml directory<br/>
-     The Gardener theme is designed to work with treebank data files as exported directly from Perseids in BagIt archives. These archives can be exported by clicking the little shopping bag icon that appears to the right of your file on the Perseids home screen.  When you unzip the files will be in a base directory named according to the publication id and download date, and wihtin there in a "data" subdirectory.
+     The Gardener theme is designed to work with treebank data files as exported directly from Perseids in BagIt archives. These archives can be exported by clicking the little shopping bag icon that appears to the right of your file on the Perseids home screen.  When you unzip the files will be in a base directory named according to the publication id and download date, and within there in a "data" subdirectory.
      <ol>
        <li>Download the bag from Perseids</li>
        <li>Unzip the downloaded bag in the <b>xml</b> subdirectory of your repository.
