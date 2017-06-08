@@ -2,7 +2,7 @@
 
 This guide should help you self-publish a collection of treebank fixes produced on the Perseids platform with Arethusa, hosting them in a simple Jekyll-based site via GitHub Pages. 
 
-Prerequisites for using guide include:
+Prerequisites for using this theme include:
     <ul>
       <li>The ability to use the command line on your operating system.</li>
       <li>Basic knowledge of how to use GitHub</li>
