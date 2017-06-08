@@ -18,6 +18,7 @@ To publish your own treebank collection, follow the below instructions. (Command
  	<li>Create a GitHub account (if you don’t have one already) and familiarize yourself with how <a href="https://guides.github.com/activities/hello-world/">GitHub works</a>.</li>
  	<li>Fork this repository (https://github.com/perseids-project/Gardener) to your own GitHub account.</li>
         <li>If you like, you can rename the repository in your account.</li>
+	<li> We encourage you to use your github account to create a <a href="https://zenodo.org/account/settings/github/">Zenodo</a> account, and to use Zenodo to set up a <a href="https://www.doi.org/">DOI</a> for your treebank collection.</li>
  	<li>Clone the forked repository to your local environment, so that you can work with it and test it locally.</li>
     </ol>
   </li>
