@@ -1577,7 +1577,7 @@ angular.module('arethusa.comments').factory('CommentsRetriever', [
         } else {
           resource.get().then(function(res) {
             parseComments(res.data);
-            callback(comments[chunkId]);
+            callback(comments[chunkId] || []);
           });
           alreadyLoaded = true;
         }

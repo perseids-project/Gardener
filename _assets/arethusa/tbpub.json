@@ -3,10 +3,10 @@
     "debug": false,
     "showKeys": false,
     "chunkParam": "chunk",
-    "auxConfPath": "http:\/\/services.perseids.org\/arethusa-configs",
+    "auxConfPath": "https:\/\/services.perseids.org\/arethusa-configs",
     "retrievers": {
       "TreebankRetriever": {
-        "resource": "GardenerPrototype",
+        "resource": "Gardener",
         "docIdentifier": "treebank",
         "preselector": "w"
       }
@@ -38,7 +38,7 @@
     "logo": "images\/arethusa-icon-small.png"
   },
   "resources": {
-    "GardenerPrototype": {
+    "Gardener": {
       "route": "xml\/:doc",
       "params": [
         "doc"
@@ -50,8 +50,14 @@
     "morphologyServiceLat": {
       "route": "http:\/\/services.perseids.org\/bsp\/morphologyservice\/analysis\/word?lang=lat&engine=morpheuslat"
     },
+    "newMorphologyServiceLat": {
+      "route": "http:\/\/morph.perseids.org\/analysis\/word?lang=lat&engine=morpheuslat"
+    },
     "morphologyServiceGrc": {
       "route": "http:\/\/services.perseids.org\/bsp\/morphologyservice\/analysis\/word?lang=grc&engine=morpheusgrc"
+    },
+    "newMorphologyServiceGrc": {
+      "route": "http:\/\/morph.perseids.org\/analysis\/word?lang=grc&engine=morpheusgrc"
     },
     "morphologyServicePer": {
       "route": "http:\/\/localhost\/extapi\/morphologyservice\/analysis\/word?lang=per&engine=hazm"
@@ -71,6 +77,7 @@
       "template": "js\/templates\/dep_tree.html"
     },
     "morph": {
+      "noRetrieval": "online",
       "contextMenu" : true,
       "contextMenuTemplate": "js/arethusa.morph/templates/context_menu.html"
     },

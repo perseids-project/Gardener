@@ -60,6 +60,8 @@ function Arethusa() {
     template.setAttribute("ng-include",'gS.layout.template');
     template.setAttribute("class",'fade slow');
     template.setAttribute("key-capture",'');
+    var navbar = document.createElement("arethusa-navbar");
+    template.appendChild(navbar);
     document.getElementById(self.id.slice(1)).appendChild(template);
     var target = angular.element(self.id);
     target.attr('ng-controller','ArethusaCtrl');
@@ -973,10 +975,10 @@ angular.module('arethusa').service('retrieverHelper', [
 'use strict';
 
 angular.module('arethusa').constant('VERSION', {
-  revision: '1cd0320d21dec59dcbf67bd06d7bd5fab3aa7e8c',
+  revision: '449ee3e5eb26fba7ede57b24be71aac565de0667',
   branch: 'master',
   version: '0.2.5',
-  date: '2016-06-08T09:41:19.787Z',
+  date: '2017-06-07T14:58:53.301Z',
   repository: 'http://github.com/latin-language-toolkit/arethusa'
 });
 
@@ -1447,6 +1449,22 @@ angular.module('arethusa').run(['$templateCache', function($templateCache) {
   );
 
 
+  $templateCache.put('js/templates/main_grid_widget.html',
+    "<div>\n" +
+    "  <div id=\"arethusa-editor\">\n" +
+    "    <div class=\"canvas-border\"/>\n" +
+    "\n" +
+    "    <div arethusa-grid/>\n" +
+    "\n" +
+    "    <div arethusa-context-menus tokens=\"state.tokens\" plugins=\"plugins.withMenu\"/>\n" +
+    "  </div>\n" +
+    "  <div notifications/>\n" +
+    "  <div id=\"arethusa-sentence-list\" class=\"hide\"/>\n" +
+    "  <arethusa-navbar/>\n" +
+    "</div>\n"
+  );
+
+
   $templateCache.put('js/templates/main_with_sidepanel.html',
     "<div>\n" +
     "  <div id=\"arethusa-editor\">\n" +
@@ -1589,6 +1607,38 @@ angular.module('arethusa').run(['$templateCache', function($templateCache) {
   );
 
 
+  $templateCache.put('js/templates/morph3.widget.html',
+    "<div ng-repeat=\"(id, analysis) in plugin.currentAnalyses()\">\n" +
+    "  <div class=\"small-12 columns\" lang-specific>\n" +
+    "    <accordion close-others=\"oneAtATime\">\n" +
+    "      <accordion-group\n" +
+    "        ng-repeat=\"form in analysis.forms\"\n" +
+    "        is-open=\"plugin.expandSelection && form.selected\">\n" +
+    "        <accordion-heading>\n" +
+    "          <div class=\"row\" accordion-highlighter>\n" +
+    "            <div class=\"columns large-3 small-5 text\">\n" +
+    "              <span ng-style=\"plugin.styleOf(form)\" lang-specific>{{ form.lemma }}\n" +
+    "              <br>\n" +
+    "              </span> {{ plugin.concatenatedAttributes(form) }}\n" +
+    "            </div>\n" +
+    "            <div\n" +
+    "              class=\"columns large-4 small-5 postag\">\n" +
+    "              {{ form.postag }}\n" +
+    "            </div>\n" +
+    "            <div class=\"columns large-1 hide-for-small hide-for-medium note end\">{{ form.origin }}</div>\n" +
+    "          </div>\n" +
+    "          <hr class=\"small\">\n" +
+    "        </accordion-heading>\n" +
+    "        <div class=\"small-12 columns\" morph-form-attributes=\"form\" token-id=\"id\"></div>\n" +
+    "        <p class=\"small-12 columns\"/>\n" +
+    "        <hr>\n" +
+    "      </accordion-group>\n" +
+    "    </accordion>\n" +
+    "  </div>\n" +
+    "</div>\n"
+  );
+
+
   $templateCache.put('js/templates/morph_form.html',
     "<ul>\n" +
     "  <li ng-repeat=\"(attr, val) in form.attributes\">\n" +
@@ -1691,6 +1741,24 @@ angular.module('arethusa').run(['$templateCache', function($templateCache) {
     "  </div>\n" +
     "</div>\n" +
     "<small ng-show=\"form.lexInvUri\">Lexical Inventory: {{ form.lexInvUri }}</small>\n"
+  );
+
+
+  $templateCache.put('js/templates/navbar.widget.html',
+    "<div class=\"absolute_top\">\n" +
+    "  <nav class=\"top-bar\" data-topbar>\n" +
+    "    <ul class=\"title-area\">\n" +
+    "      <li class=\"name\">\n" +
+    "      <h1><a href=\"#\"><img ng-src=\"{{ logo }}\"/></a></h1>\n" +
+    "      </li>\n" +
+    "    </ul>\n" +
+    "    <section class=\"top-bar-section\">\n" +
+    "      <ul navbar-navigation/>\n" +
+    "    </section>\n" +
+    "  </nav>\n" +
+    "</div>\n" +
+    "<div help-panel class=\"hide row panel\"/>\n" +
+    "<div global-settings-panel class=\"hide row panel\"/>\n"
   );
 
 
@@ -1923,6 +1991,26 @@ angular.module('arethusa').run(['$templateCache', function($templateCache) {
     "  </div>\n" +
     "</div>\n" +
     "\n"
+  );
+
+
+  $templateCache.put('js/templates/widget.html',
+    "<div>\n" +
+    "  <div id=\"arethusa-editor\">\n" +
+    "    <div class=\"canvas-border\"/>\n" +
+    "\n" +
+    "    <div id=\"canvas\" class=\"row panel full-height\" full-height>\n" +
+    "      <div id=\"main-body\" class=\"widget\" to-bottom>\n" +
+    "        <div arethusa-context-menus tokens=\"state.tokens\" plugins=\"plugins.withMenu\"/>\n" +
+    "        <div ng-repeat=\"pl in plugins.main\" plugin name=\"{{ pl.name }}\"/>\n" +
+    "        <div keys-to-screen/>\n" +
+    "      </div>\n" +
+    "    </div>\n" +
+    "  </div>\n" +
+    "  <div notifications/>\n" +
+    "  <arethusa-navbar/>\n" +
+    "  <div id=\"arethusa-sentence-list\" class=\"hide\"/>\n" +
+    "</div>\n"
   );
 
 }]);

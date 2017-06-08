@@ -369,13 +369,13 @@ angular.module('arethusa.morph').factory('BspMorphRetriever', [
       });
     }
 
-    function flattenAttributes(form, toFlatten) {
-      toFlatten.forEach(function (el) {
-        var attr = form[el];
-        if (attr) {
-          form[el] = attr.$;
+    function flattenAttributes(form) {
+      for (var el in form) { 
+        if (form[el].$) {
+          var flat = form[el].$;
+          form[el] = flat;
         }
-      });
+      }
     }
 
     function renameAttributes(form, mappings) {
@@ -418,6 +418,7 @@ angular.module('arethusa.morph').factory('BspMorphRetriever', [
       };
 
       this.abort = resource.abort;
+      this.flattenAttributes = flattenAttributes;
 
       this.getData = function (string, callback) {
         self.getWord(string).then(function (res) {
@@ -446,10 +447,7 @@ angular.module('arethusa.morph').factory('BspMorphRetriever', [
                   // If the form has a case attribute, it wrapped in another object we
                   // don't want and need. Flatten it to a plain expression.
                   // The same goes for part of speech.
-                  flattenAttributes(form, [
-                    'case',
-                    'pofs'
-                  ]);
+                  flattenAttributes(form);
                   renameAttributes(form, self.mapping.attributes);
                   renameValues(form, self.mapping.values);
 
@@ -1845,12 +1843,6 @@ angular.module('arethusa.morph').run(['$templateCache', function($templateCache)
     "      always-reveal=\"true\"\n" +
     "      token-id=\"tokenId\">\n" +
     "      Create new\n" +
-    "    </a>\n" +
-    "    <span>&nbsp;-&nbsp;</span>\n" +
-    "    <a\n" +
-    "      target=\"_blank\"\n" +
-    "      href=\"http://http://www.perseus.tufts.edu/\">\n" +
-    "      Report Error\n" +
     "    </a>\n" +
     "    <span>&nbsp;-&nbsp;</span>\n" +
     "    <a\n" +
