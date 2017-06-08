@@ -9,7 +9,7 @@ Prerequisites for using this theme include:
       <li>Treebank files produced on Perseids with Arethusa</li>
     </ul>
 
-To publish your own treebank collection, follow the below instructions. (Command line examples are given as they would be executed on Linux-based operating systemd).
+To publish your own treebank collection, follow the below instructions. (Command line examples are given as they would be executed on Linux-based operating system).
 
 
 <ol>
