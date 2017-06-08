@@ -9,21 +9,3 @@ pubdir: perseidspublication_22983_2017-06-08T11:58:10+00:00
 tbfile: perseus-grctb.9999.1.xml
 ---
 
-<p>The benefit of using Gardener is that you do not need to understand basic html in order to create a basic blog for your trees. In order to generate each treebank display page, you will need to create a simple html file for each treebank file. But that file can be almost entirely empty and only needs to have a yaml header.This header contains the important data that the system needs in order to generate the treebank displays, and the list of treebanks on the main page. Here is a breif explanation of what each element of the header means:</p>
-
-<ul>
-<li>Layout: leave this value as tbpage, this determines which page template jekyll will use when it builds the site. For these treebank display pages, you will always want to use tbpage.</li>
-<li>Title: this can be whatever you want to call the treebank, it will appear at the top of the page<br>
-<li>Work: the title of the original source of the text for your treebank</li>
-<li>Author: the author of the Text for your treebank</li>
-<li>Editor: the person who annotated the treebank</li>
-<li>Tblang: this will determine the main language directory the system will look in for the treebank file. The values “Greek” and “Latin” are case sensitive. </li>
-<li>Locus: the section of the original text for your treebank</li>
-<li>Folder: the name of the folder within the language directory that contains your treebank file.</li>
-<li>Tbfile: the name of the treebank file you want to associate with this treebank page. The example is the default naming convention for treebank files when they are downloaded from Perseids.</li>
-</ul>
-
-<p>These html files are named after their original treebank file, although with a different file extension. The above yaml header is named “grctb.1911.1.tb.html” 
-Any additional content that you want to add to the tbpage, you can add below the yaml header. Even unformated text will appear in the final version of the page above the treebank display. 
-These html files can be written up in any simple text editor. 
-The default directory structure divides the treebanks by language, and then into categories based on the name of the document. Currently we only support this kind of structure, and only three specific language categories, grctb for Ancient Greek treebanks, lattb for Latin treebanks, and misctb for all other language groups.</p>
