@@ -1,59 +1,62 @@
 ---
+permalink: :title.html
 layout: default
-
 ---
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="{{ "/assets/arethusa.packages.min.js" | relative_url }}"></script>
+<script type="text/javascript" src="{{ "/assets/arethusa.min.js" | relative_url }}"></script>
+<script type="text/javascript" src="{{ "/assets/arethusa.widget.loader.js" | relative_url }}"></script>
+<script type="text/javascript">
 
-<div class="home">
 
-  <h1 class="page-heading"></h1>
 
- <p> {{ content }}	</p> 
+var base = "{{ page.pubdir }}/data/{{ page.tbfile }}"
 
-<div class="tbpages">
-<h1 class="page-heading">Treebank Collection</h1> 
-<table class="tbpage-list">
-    <thead>
-      <th>Author</th>
-      <th>Work</th>
-      <th>Editors</th>
-      <th>Locus</th>
-      <th>Link</th>
-    </thead>
-    <tbody>
-    {% for page in site.tbpages %}
-      <tr>
-        <td class="page-meta">{{ page.author }}</td>
-        <td class="page-meta">{{ page.work }}</td>
-        <td class="page-meta">{{ page.editor }}</td>
-        <td class="page-meta">{{ page.locus }}</td>    
-        <td><a class="page-link" href="{{ page.url | relative_url }}">{{ page.title | escape }}</a></td>
-      </tr>
-    {% endfor %}
-    </tbody>
-  </table>
-</div>
+$(document).ready(function() {
+  var deps = {
+    "css": {  
+      "arethusa":"{{ "/assets/css/arethusa.min.css" | relative_url }}",
+      "colorpicker":"{{ "/assets/css/colorpicker.css" | relative_url }}",
+      "font_awesome":"{{ "/assets/css/font-awesome.min.css" | relative_url }}",
+      "foundation":"{{ "/assets/css/foundation-icons.css" | relative_url }}"
+    },
+    "js":{
+      "arethusa":"{{ "/assets/javascripts/arethusa.min.js" | relative_url }}",
+      "packages":"{{ "/assets/javascripts/arethusa.packages.min.js" | relative_url }}"
+    }
+  }
 
-  <div class="blogroll">
+  window.i18npath = "assets/i18n/";
+  window.dagred3path = "vendor/dagre-d3.min.js";
+  loadArethusaWidget(
+    "treebank_container",
+    "assets/",
+    "assets/tbpub.json",
+    { doc: base },
+    deps
+  ); 
+});
+</script>
 
-  <h1 class="page-heading">The latest from the Blog</h1>  
 
-<ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+<div class="tbpage">
+<h4>{{ page.title }}</h4>
+<h4>Work : {{ page.work }}</h4>
+<h4>Author : {{ page.author }}</h4>
+<h4>Editor : {{ page.editor }}</h4>
+<h4>Locus : {{ page.locus  }}</h4>
+{{ content }}
 
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>
+
+<div class="__artsa">
+  <div id="treebank_container" style="position:relative;">
   </div>
-
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
-
-
+</div>
 
 </div>
+
+
+
 
