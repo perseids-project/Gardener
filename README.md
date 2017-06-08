@@ -1,7 +1,5 @@
 <h1>Gardener Treebanking Self-publicaiton Platform</h1>
 
-
-
 This guide should help you self-publish a collection of treebank fixes produced on the Perseids platform with Arethusa, hosting them in a simple Jekyll-based blog via GitHub Pages. 
 
 Prerequisites for using guide include:
@@ -11,7 +9,7 @@ Prerequisites for using guide include:
       <li>Treebank files produced on Perseids with Arethusa</li>
     </ul>
 
-To publish your own treebank collection, follow the below instructions. 
+To publish your own treebank collection, follow the below instructions. (Command line examples are given as they would be executed on Linux-based operating systemd).
 
 
 <ol>
@@ -23,89 +21,68 @@ To publish your own treebank collection, follow the below instructions.
  	<li>Clone the forked repository to your local environment, so that you can work with it and test it locally.</li>
     </ol>
   </li>
-  <li>Setup Jekyll in your local environment
+  <li>Install Ruby and Jekyll in your local environment
     <ol>
  	<li>Install <a href="https://www.ruby-lang.org/">Ruby</a> and <a href="https://rubygems.org/">Rubygems</a>.</li>
         <li>Install the Jekyll and Bundler gems: 
-            ```gem install jekyll bundler```
+	<pre>gem install jekyll bundler</pre>
         </li>
-        <li>From <em>within</em> your local clone of the forked Gardener repository, run the following command to initialie Jekyll for your repository:
-            ```jekyll new . --force```
-        </li>
-	<li>This will pregenerate a few files and add them to your repository</li>
- 	<li>For more information on Jekyll see the <a href="https://jekyllrb.com/docs/quickstart/">Jekyll Quickstart instructions</a></li>
     </ol>
-  </li>
-  <li>Configure the Jekyll theme<br/>
-      Some of the parts of the Gardener Theme are not complete files by themselves, but require you to edit the 
-      default pregenerated files
-      <ol>
-	<li>edit the .gitignore file and add the line `_site.asset-cache` to it. It should look as follows after editing:
-            ```
-            _site
-            .sass-cache
-            .jekyll-metadata
-            ._site.asset-cache
-            ```
-       </li>
-	<li>Delete the pregenerated file named `Gemfile` and rename `Gemfile-add-ons` to `Gemfile`:
-           ```
-             rm Gemfile && mv Gemfile-add-ons Gemfile
-           ```
-        </li>
-	<li>Delete the pregenerated `_config.yml` file and rename `_config_add-ons.yml` to `_config.yml`:
-           ```
-             rm _config.yml && mv _config_add-ons.yml _config.yml
-           ```
-	<li>Update the `_config.yml` to set the `baseurl` and `url` for your site. Set the `baseurl` to the name of your forked repository (this will be __Gardener__ unless you have changed the name of the repository after forking it.). Set the `url` to the full Github.io URL for your repository (e.g. __https://youraccount.github.io/Gardener__)</li>
+  <li>Configure your site. 
+      Edit the _config.yml file to set the things that are specific to your site:
+    <ol>
+      <li>Set <b>title</b> to the Title you wan to to appear for your site.</li>
+      <li>Set <b>email</b> to your email address (if you want to publish it, otherwise set it to be empty)</li>
+      <li>Set <b>description</b> to the text you would like to appear on the home page of your site<\li>
+      <li>Set <b>baseurl</b> to "/" plus the name of your forked repository (this will be '/Gardener' unless you have changed the name of the repository after forking it.). </li>
+      <li>Set <b>url</b> to the full Github.io URL for your repository (e.g. 'https://youraccount.github.io/Gardener__'</li>
+      <li>Set <b>twitter_username</b> and <b>github_username</b> as appropriate</li>
      </ol>
    </li>
    <li>Load your treebanks into the xml directory<br/>
-     The Gardener theme is designed to work with treebank data files as exported directly from Perseids in BagIt archives. These archives can be exported by clicking the little shopping bag icon that appears to the right of your file on the Perseids home screen.  When you unzip the files will be in a base directory named according to the publication id and download date, and wihtin there in a `data` subdirectory.
+     The Gardener theme is designed to work with treebank data files as exported directly from Perseids in BagIt archives. These archives can be exported by clicking the little shopping bag icon that appears to the right of your file on the Perseids home screen.  When you unzip the files will be in a base directory named according to the publication id and download date, and wihtin there in a "data" subdirectory.
      <ol>
        <li>Download the bag from Perseids</li>
-       <li>Change into the `xml` subdirectory</li>
-       <li>Unzip the downloaded bag
-           ```
+       <li>Unzip the downloaded bag in the <b>xml</b> subdirectory of your repository.
+           <pre>
              cd xml
              unzip /path/to/downloaded/file .
-           ```
+	   </pre>
        </li>
        <li>You should end up with a directory structure that looks like this:
-           ```
+           <pre>
            xml
              perseidspublication_99999_2017-06-08T11:58:10+00:00
                data
                  perseus-grctb.9999.1.xml
-           ```
+           </pre>
        </li>
        <li>There will be other metadata files extracted from the Perseids bagit archives, but you can ignore them.</li>
        <li>Repeat this process for as many files as you want to publish.</li>
      </ol>
    </li>
-   <li>Create index files for each treebank. You can do this in a very basic text editor, or in-browser on GitHub. For each treebank file you publish, add a file in the _tbpages directory of your repository. The filename should match the name of your treebank file, except have the extension `.html` instead of `.xml`.  E.g.
-        ```
+   <li>Create index files for each treebank. You can do this in a very basic text editor, or in-browser on GitHub. For each treebank file you publish, add a file in the _tbpages directory of your repository. The filename can be whatever you want but for simplicity we recommend a name that is related to the name your treebank file. E.g.
+        <pre>
             _tbpages
-              perseus-grctb.9999.1.html
-        ```
+              9999.1.html
+	</pre>
         The contents of the file should adhere to the format described below under "Template Treebank Index Files"
    </li>
-   <li>Edit the `home.html` (found in the `_layouts` directory) to change hte content of your site's main page.</li>
-   <li>Use Jekyll to build the site
+   <li>Install dependencies and use Jekyll to build the site
      <ol>
- 	<li>You can serve your blog locally to test it out by following<a href="https://jekyllrb.com/docs/usage/"> these instructions</a>
-           ```
+ 	<li>Build and test your site locally (see <a href="https://jekyllrb.com/docs/usage/">full instructions</a>):
+           <pre>
+	   bundle install
            jekyll build
            jekyll serve
-           
-           ```
+	   </pre>
         </li>
- 	<li>Once you are satisfied, you can push to GitHub. Because the Gardener theme uses Jekyll extensions, you must push the locally built files to GitHub, rather than having GitHub generate the files dynamically. This means that you must be sure that the `docs` directory is included in what gets committed and pushed to GitHub.</li>
+ 	<li>Once you are satisfied, you can push to GitHub. Because the Gardener theme uses Jekyll extensions, you must push the locally built files to GitHub, rather than having GitHub generate the files dynamically. This means that you must be sure that the <b>docs</b> directory created by the <b>jekyll build</b> command is included in what gets committed and pushed to GitHub.</li>
       </ol>
    </li>
   <li> Setting up GitHub-pages
     <ol>
-      <li>Once you have pushed your site to GitHub, you will need to turn on <a href="https://guides.github.com/features/pages/">GitHub Pages</a>. Make sure to identify hte `docs` directory as the source for your site.</li>
+      <li>Once you have pushed your site to GitHub, you will need to turn on <a href="https://guides.github.com/features/pages/">GitHub Pages</a>. Make sure to identify the <b>docs</b> directory as the source for your site.</li>
     </ol>
   </li>
 </ol>
@@ -124,7 +101,7 @@ author: Plato<br>
 editor: Tim Buckingham<br>
 locus: 20b-22b.2<br>
 pubdir: perseidspublication_99999_2017-06-08T11:58:10+00:00<br>
-tbfile: grctb.1911.1.tb.xml<br>
+tbfile: perseus-grctb.1911.1.xml<br>
 ---</p>
 
 
@@ -140,7 +117,6 @@ tbfile: grctb.1911.1.tb.xml<br>
 </ul>
 
 <p>
-These html files are named after their original treebank file, although with a different file extension. The above yaml header is named “grctb.1911.1.tb.html” <br>
 Any additional content that you want to add to the tbpage, you can add below the yaml header. Even unformated text will appear in the final version of the page above the treebank display. <br>
 These html files can be written up in any simple text editor. <br>
 </p>
