@@ -12,17 +12,7 @@ layout: default
 
 
 
-if ("{{ page.tblang }}" === "Latin") {
-  var langgroup = 'lattb';
-}
-else if ("{{ page.tblang }}" === "Greek") {
-  var langgroup = 'grctb';
-}
-else {
-  var langgroup = 'misctb';
-};
-
-var base = "/perseus/"+langgroup+"/"+{{ page.folder }}+"/"+'{{ page.tbfile }}'
+var base = "{{ page.pubdir }}/data/{{ page.tbfile }}"
 
 $(document).ready(function() {
   var deps = {
@@ -50,9 +40,6 @@ $(document).ready(function() {
 });
 </script>
 
-
-
- 
 
 <div class="tbpage">
 <h4>{{ page.title }}</h4>

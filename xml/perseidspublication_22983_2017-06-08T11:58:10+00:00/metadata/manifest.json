@@ -1,0 +1,23 @@
+{
+  "@context": [
+    "https://w3id.org/bundle/context"
+  ],
+  "@id": "../",
+  "createdBy": {
+    "name": "Tim Buckingham",
+    "uri": "http://data.perseus.org/sosol/users/Tim%20Buckingham"
+  },
+  "createdOn": "2017-06-08T11:58:10+00:00",
+  "aggregates": [
+    {
+      "conformsTo": "https://raw.githubusercontent.com/alpheios-project/schemas/master/xsd/treebank-1.7.xsd",
+      "mediatype": "application/xml",
+      "createdBy": {
+        "name": "Tim Buckingham",
+        "uri": "http://data.perseus.org/sosol/users/Tim%20Buckingham"
+      },
+      "uri": "../data/perseus-grctb.9999.1.xml",
+      "history": "provenance/perseus-grctb.9999.1.prov.jsonld"
+    }
+  ]
+}
