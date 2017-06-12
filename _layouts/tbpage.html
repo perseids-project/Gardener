@@ -39,7 +39,18 @@ $(document).ready(function() {
   ); 
 });
 </script>
-<a href="https://doi.org/{{ site.DOI }}"><img src="https://sandbox.zenodo.org/badge/DOI/{{ site.DOI }}.svg" alt="DOI"></a>
+ 
+<div id='if-part' style='visibility: hidden;'><a href="https://doi.org/{{ site.DOI }}"><img src="https://sandbox.zenodo.org/badge/DOI/{{ site.DOI }}.svg" alt="DOI"></a></div>
+
+
+<script>
+    var node;
+    var DOI = "{{ site.DOI }}"
+    if(DOI.length > 0) {
+        node = document.getElementById('if-part');
+        node.style.visibility = 'visible';
+        }
+</script>
 
 <div class="tbpage">
 <h4>{{ page.title }}</h4>
