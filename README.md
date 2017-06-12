@@ -38,6 +38,7 @@ To publish your own treebank collection, follow the below instructions. (Command
       <li>Set <b>baseurl</b> to "/" plus the name of your forked repository (this will be normally be '/Gardener' unless you have changed the name of the repository after forking it.). </li>
       <li>Set <b>url</b> to the full Github.io URL for your repository (e.g. 'https://youraccount.github.io/Gardener'</li>
       <li>Set <b>twitter_username</b> and <b>github_username</b> as appropriate</li>
+      <li>If you set up a Zenodo account, and created a first relase of your collection, Set <b>DOI</b> to your current release. </li>
      </ol>
    </li>
    <li>Load your treebanks into the xml directory<br/>
