@@ -22,11 +22,11 @@ To publish your own treebank collection, follow the below instructions. (Command
  	<li>Clone the forked repository to your local environment, so that you can work with it and test it locally.</li>
     </ol>
   </li>
-  <li>Install Ruby and Jekyll in your local environment
+  <li>Install Ruby (version 2.5.3) in your local environment
     <ol>
  	<li>Install <a href="https://www.ruby-lang.org/">Ruby</a> and <a href="https://rubygems.org/">Rubygems</a>.</li>
         <li>Install the Jekyll and Bundler gems: 
-	<pre>gem install jekyll bundler</pre>
+	<pre>gem install bundler</pre>
         </li>
     </ol>
   <li>Configure your site. 
