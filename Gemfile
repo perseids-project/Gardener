@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 ruby "2.5.3"
 
-gem "jekyll", "3.4.2"
+gem "jekyll", ">= 3.6.3"
 gem "jekyll-theme-hacker", "0.0.4"
 gem "jekyll-theme-leap-day", "0.0.4"
 gem "jekyll-theme-time-machine", "0.0.4"

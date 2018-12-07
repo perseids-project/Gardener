@@ -77,8 +77,8 @@ To publish your own treebank collection, follow the below instructions. (Command
  	<li>Build and test your site locally (see <a href="https://jekyllrb.com/docs/usage/">full instructions</a>):
            <pre>
 	   bundle install
-           jekyll build
-           jekyll serve
+           bundle exec jekyll build
+           bundle exec jekyll serve
 	   </pre>
         </li>
  	<li>Once you are satisfied, you can push to GitHub. Because the Gardener theme uses Jekyll extensions, you must push the locally built files to GitHub, rather than having GitHub generate the files dynamically. This means that you must be sure that the <b>docs</b> directory created by the <b>jekyll build</b> command is included in what gets committed and pushed to GitHub.</li>

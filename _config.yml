@@ -27,7 +27,7 @@ DOI : your DOI here
 # Build settings
 markdown: kramdown
 theme: jekyll-theme-slate
-gems:
+plugins:
   - jekyll-feed
   - jekyll-assets
 exclude:
